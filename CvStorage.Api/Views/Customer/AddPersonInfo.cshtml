@@ -49,7 +49,7 @@
             <h5 style="margin-left: 35px">Profile info</h5>
             <div class="row">
                 <div class="col">
-                    @Html.TextAreaFor(person => person.PersonInfo.ProfileInfo, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info" })
+                    @Html.TextAreaFor(model => model.PersonInfo.ProfileInfo, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info" })
                 </div>
             </div>
 
@@ -57,22 +57,22 @@
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Firstname</h5>
-                    @Html.TextBoxFor(person => person.PersonInfo.FirstName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname" })
+                    @Html.TextBoxFor(model => model.PersonInfo.FirstName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname" })
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Lastname</h5>
-                    @Html.TextBoxFor(person => person.PersonInfo.LastName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname" })
+                    @Html.TextBoxFor(model => model.PersonInfo.LastName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname" })
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Phone number</h5>
-                    @Html.TextBoxFor(person => person.PersonInfo.PhoneNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number" })
+                    @Html.TextBoxFor(model => model.PersonInfo.PhoneNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number" })
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">E-mail</h5>
-                    @Html.TextBoxFor(person => person.PersonInfo.Email, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail" })
+                    @Html.TextBoxFor(model => model.PersonInfo.Email, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail" })
                 </div>
             </div>
             <hr style="height:1px;border-width:0;color:gray;background-color:gray">
@@ -81,26 +81,26 @@
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Country</h5>
-                    @Html.TextBoxFor(person => person.Address.Country, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country" })
+                    @Html.TextBoxFor(model => model.Address.Country, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country" })
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">City</h5>
-                    @Html.TextBoxFor(person => person.Address.City, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City" })
+                    @Html.TextBoxFor(model => model.Address.City, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City" })
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Post code</h5>
-                    @Html.TextBoxFor(person => person.Address.PostCode, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Post code" })
+                    @Html.TextBoxFor(model => model.Address.PostCode, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Post code" })
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Street</h5>
-                    @Html.TextBoxFor(person => person.Address.Street, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street" })
+                    @Html.TextBoxFor(model => model.Address.Street, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street" })
                 </div>
                 <div class="col">
-                    <h5 style="margin-left: 50px">Post code</h5>
-                    @Html.TextBoxFor(person => person.Address.StreetNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Street number" })
+                    <h5 style="margin-left: 50px">Street number</h5>
+                    @Html.TextBoxFor(model => model.Address.StreetNumber, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Street number" })
                 </div>
             </div>
 

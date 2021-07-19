@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202107140946432_AddCvPropertiesAndChangeVariableName.designer.cs">
       <DependentUpon>202107140946432_AddCvPropertiesAndChangeVariableName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107190911438_ChangedStreetnumberTOstring.cs" />
+    <Compile Include="Migrations\202107190911438_ChangedStreetnumberTOstring.designer.cs">
+      <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107140946432_AddCvPropertiesAndChangeVariableName.resx">
       <DependentUpon>202107140946432_AddCvPropertiesAndChangeVariableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107190911438_ChangedStreetnumberTOstring.resx">
+      <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
