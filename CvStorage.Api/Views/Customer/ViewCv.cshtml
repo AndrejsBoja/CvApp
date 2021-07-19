@@ -1,0 +1,51 @@
+﻿@model CvStorage.Api.ViewModels.CvVm
+
+@{
+    ViewBag.Title = "AddPersonInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+    .IconTitle {
+        border: 3px solid #e0e0e0;
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        background-color: #269abc;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .form-control {
+        width: 250px;
+        text-align: center;
+    }
+</style>
+
+<div class="jumbotron">
+    @*PROFILE INFO ICON AND HEADER*@
+    <div style="margin-left: 2%;margin-top: 20px">
+        <span class="IconTitle">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
+        </span>
+        <h3 style="margin-left:10%; margin-top: -5%; margin-bottom: 90px;">Personal Info</h3>
+    </div>
+    @*PROFILE INFO ICON AND HEADER END*@
+
+
+    <h4>@Model.PersonInfo.FirstName @Model.PersonInfo.LastName</h4>
+</div>
+
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "GetCvList")
+</p>

@@ -1,0 +1,116 @@
+﻿@model CvStorage.Api.ViewModels.CvVm
+
+
+@{
+    ViewBag.Title = "AddPersonInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+    .IconTitle {
+        border: 3px solid #e0e0e0;
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        background-color: #269abc;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .form-control {
+        width: 250px;
+        text-align: center;
+    }
+</style>
+
+
+<div class="jumbotron">
+    <h1>CREATE CV</h1>
+    <p class="lead">You can fill up the fields and create a CV here.</p>
+
+    @*PROFILE INFO ICON AND HEADER*@
+    <div style="margin-left: 35%;margin-top: 60px">
+        <span class="IconTitle">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
+        </span>
+        <h3 style="margin-left: 15%; margin-top: -7%; margin-bottom: 90px;">Personal Info</h3>
+    </div>
+    @*PROFILE INFO ICON AND HEADER END*@
+
+    @using (Html.BeginForm("AddPersonInfo", "Customer", FormMethod.Post))
+    {
+        <form>
+            <h5 style="margin-left: 35px">Profile info</h5>
+            <div class="row">
+                <div class="col">
+                    @Html.TextAreaFor(person => person.PersonInfo.ProfileInfo, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info" })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Firstname</h5>
+                    @Html.TextBoxFor(person => person.PersonInfo.FirstName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Lastname</h5>
+                    @Html.TextBoxFor(person => person.PersonInfo.LastName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Phone number</h5>
+                    @Html.TextBoxFor(person => person.PersonInfo.PhoneNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">E-mail</h5>
+                    @Html.TextBoxFor(person => person.PersonInfo.Email, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail" })
+                </div>
+            </div>
+            <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+            <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Address</h3>
+
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Country</h5>
+                    @Html.TextBoxFor(person => person.Address.Country, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">City</h5>
+                    @Html.TextBoxFor(person => person.Address.City, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Post code</h5>
+                    @Html.TextBoxFor(person => person.Address.PostCode, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Post code" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Street</h5>
+                    @Html.TextBoxFor(person => person.Address.Street, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Post code</h5>
+                    @Html.TextBoxFor(person => person.Address.StreetNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Street number" })
+                </div>
+            </div>
+
+
+
+
+            <button class="btn btn-warning" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
+        </form>
+    }
+
+</div>
+
+

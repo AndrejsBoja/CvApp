@@ -1,0 +1,90 @@
+﻿@model List<CvStorage.Api.ViewModels.CvVm>
+
+@{
+    ViewBag.Title = "GetCvList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .row {
+        margin-bottom: 25px;
+    }
+
+    .IconTitle {
+        border: 3px solid #e0e0e0;
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        background-color: #269abc;
+    }
+
+    .fontStyle {
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>CV LIST</h1>
+    <p class="lead">You can view, edit and delete your Cvs here.</p>
+
+    <table class="table table-striped table-hover table-responsive table-condensed" style="margin-left: 90px;margin-top: 50px">
+        <tr>
+            <th>
+                <h3 style="font-size: 25px">
+                    <span style="font-weight: 500"> Name</span>
+                </h3>
+            </th>
+            <th>
+                <h3 style="font-size: 25px">
+                    <span style="font-weight: 500">Email</span>
+                </h3>
+            </th>
+            <th>
+                <h3 style="font-size: 25px">
+                    <span style="font-weight: 500">Created</span>
+                </h3>
+            </th>
+
+        </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="col-lg-2">
+                        <span style="font-size: 15px;">@Html.DisplayFor(model => item.PersonInfo.FirstName) @Html.DisplayFor(model => item.PersonInfo.LastName)</span>
+                    </td>
+                    <td class="col-lg-2">
+                        <span style="font-size: 15px;">@Html.DisplayFor(model => item.PersonInfo.Email)</span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span style="font-size: 15px;">20.07.2021</span>
+                    </td>
+                    <td class="col-lg-4">
+                        @*vajag id lauku cv.*@
+                        <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-secondary col-lg-2" @*onclick="location.href='@Url.Action("Edit", "Movie", new { id = item.movieID })';return false;"*@><span style="margin-right: 5px" class="glyphicon glyphicon-search"></span></button>
+
+                        <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-primary col-lg-2 col-lg-offset-1" @*onclick="location.href='@Url.Action("Details", "Movie", new { id = item.movieID })';return false;"*@><span style="margin-right: 5px" class="glyphicon glyphicon-pencil"></span></button>
+
+                        <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-warning col-lg-2 col-lg-offset-1" @*onclick="location.href='@Url.Action("Delete", "Movie", new { id = item.movieID })' ;return false;"*@><span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span></button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("body").on("click",
+                ".btn-secondary",
+                function(i) {
+                    let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
+
+                    window.location = location.href = `@Url.Action("ViewCv", "Customer")?id=${id}`;
+                });
+        });
+
+
+    </script>
+</div>
