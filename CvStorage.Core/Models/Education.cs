@@ -8,6 +8,7 @@
         public string EducationLevel { get; set; }
         public int Period { get; set; }
         public string EducationStatus { get; set; }
-        public int CvId { get; set; } 
+        public int CvId { get; set; }
+        public virtual Cv Cv { get; set; }
     }
 }

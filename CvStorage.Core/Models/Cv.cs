@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace CvStorage.Core
 {
-    public class Cv : Entity // sealed pieliku
+    public class Cv : Entity 
     {
         public Cv()
         {
@@ -13,11 +13,11 @@ namespace CvStorage.Core
             InterestList = new List<Interest>();
         }
 
-        public PersonInfo PersonInfo { get; set; }
-        public Address Address { get; set; }
-        public List<Education> EducationList { get; set; }
-        public List<WorkExperience> WorkExperienceList { get; set; }
-        public List<Skill> SkillList { get; set; } 
-        public List<Interest> InterestList { get; set; }
+        public virtual PersonInfo PersonInfo { get; set; }
+        public virtual Address Address { get; set; }
+        public virtual List<Education> EducationList { get; set; }
+        public virtual List<WorkExperience> WorkExperienceList { get; set; }
+        public virtual List<Skill> SkillList { get; set; } 
+        public virtual List<Interest> InterestList { get; set; }
     }
 }

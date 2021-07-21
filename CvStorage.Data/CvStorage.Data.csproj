@@ -52,41 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CvStorageDbContext.cs" />
-    <Compile Include="Migrations\202107121226579_Init.cs" />
-    <Compile Include="Migrations\202107121226579_Init.designer.cs">
-      <DependentUpon>202107121226579_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107130940511_NewPersonInfoModel.cs" />
-    <Compile Include="Migrations\202107130940511_NewPersonInfoModel.designer.cs">
-      <DependentUpon>202107130940511_NewPersonInfoModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107131219476_ChangedSkillClassName.cs" />
-    <Compile Include="Migrations\202107131219476_ChangedSkillClassName.designer.cs">
-      <DependentUpon>202107131219476_ChangedSkillClassName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107140946432_AddCvPropertiesAndChangeVariableName.cs" />
-    <Compile Include="Migrations\202107140946432_AddCvPropertiesAndChangeVariableName.designer.cs">
-      <DependentUpon>202107140946432_AddCvPropertiesAndChangeVariableName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107190911438_ChangedStreetnumberTOstring.cs" />
-    <Compile Include="Migrations\202107190911438_ChangedStreetnumberTOstring.designer.cs">
-      <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107191546239_ChangedEducationStatusVariable.cs" />
-    <Compile Include="Migrations\202107191546239_ChangedEducationStatusVariable.designer.cs">
-      <DependentUpon>202107191546239_ChangedEducationStatusVariable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107201113188_TestAddedList.cs" />
-    <Compile Include="Migrations\202107201113188_TestAddedList.designer.cs">
-      <DependentUpon>202107201113188_TestAddedList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107201148423_SomeClassesChangedToLists.cs" />
-    <Compile Include="Migrations\202107201148423_SomeClassesChangedToLists.designer.cs">
-      <DependentUpon>202107201148423_SomeClassesChangedToLists.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107210758261_test.cs" />
-    <Compile Include="Migrations\202107210758261_test.designer.cs">
-      <DependentUpon>202107210758261_test.cs</DependentUpon>
+    <Compile Include="Migrations\202107211839475_Init.cs" />
+    <Compile Include="Migrations\202107211839475_Init.designer.cs">
+      <DependentUpon>202107211839475_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,32 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107121226579_Init.resx">
-      <DependentUpon>202107121226579_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107130940511_NewPersonInfoModel.resx">
-      <DependentUpon>202107130940511_NewPersonInfoModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107131219476_ChangedSkillClassName.resx">
-      <DependentUpon>202107131219476_ChangedSkillClassName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107140946432_AddCvPropertiesAndChangeVariableName.resx">
-      <DependentUpon>202107140946432_AddCvPropertiesAndChangeVariableName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107190911438_ChangedStreetnumberTOstring.resx">
-      <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107191546239_ChangedEducationStatusVariable.resx">
-      <DependentUpon>202107191546239_ChangedEducationStatusVariable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107201113188_TestAddedList.resx">
-      <DependentUpon>202107201113188_TestAddedList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107201148423_SomeClassesChangedToLists.resx">
-      <DependentUpon>202107201148423_SomeClassesChangedToLists.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107210758261_test.resx">
-      <DependentUpon>202107210758261_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107211839475_Init.resx">
+      <DependentUpon>202107211839475_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

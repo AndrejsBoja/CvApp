@@ -4,9 +4,9 @@ namespace CvStorage.Api.ViewModels
 {
     public class EducationVm 
     {
-        [Required(ErrorMessage = "Name required")]
+       // [Required(ErrorMessage = "Name required")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Faculty")]
+      //  [Required(ErrorMessage = "Faculty")]
         public string Faculty { get; set; }
         public string StudyProgram { get; set; }
         public string EducationLevel { get; set; }

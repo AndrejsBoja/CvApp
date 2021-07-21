@@ -9,7 +9,7 @@ namespace CvStorage.Api.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly IEntityDbService _entityDbService; 
+        private readonly IEntityDbService _entityDbService;
 
         public CustomerController(IEntityDbService entityDbService)
         {
@@ -105,7 +105,12 @@ namespace CvStorage.Api.Controllers
                 WorkExperienceList = workExperienceList
             };
 
-            _entityDbService.Create(createdCv);
+            if(cvVm.Id == 0)
+                _entityDbService.Create(createdCv);
+            else
+            {
+                //update
+            }
 
             return RedirectToAction("GetCvList");
         }
@@ -125,12 +130,13 @@ namespace CvStorage.Api.Controllers
             return View(MapToVm(cv));
         }
 
-        //[Route("http://localhost:8080/Customer/UpdateCv"), HttpGet]
-        //public ActionResult UpdateCv()
-        //{
-
-        //    return ViewCv();
-        //}
+        [HttpGet]
+        public ActionResult UpdateCv(int id)
+        {
+            var cv = _entityDbService.GetById<Cv>(id);
+            var model = MapToVm(cv);
+            return View("AddPersonInfo", model);
+        }
 
         [Route("http://localhost:8080/Customer/DeleteCv"), HttpGet]
         public ActionResult DeleteCvById(int id)
@@ -217,54 +223,6 @@ namespace CvStorage.Api.Controllers
                 WorkExperienceVmList = workExperienceVmList
             };
 
-            //var cvVm = new CvVm
-            //{
-            //    Id = cv.Id,
-            //    PersonInfo =
-            //        new PersonInfoVm
-            //        {
-            //            FirstName = cv.PersonInfo.FirstName,
-            //            LastName = cv.PersonInfo.LastName,
-            //            Email = cv.PersonInfo.Email,
-            //            PhoneNumber = cv.PersonInfo.PhoneNumber,
-            //            ProfileInfo = cv.PersonInfo.ProfileInfo
-            //        },
-            //    Address =
-            //        new AddressVm
-            //        {
-            //            City = cv.Address.City,
-            //            Country = cv.Address.Country,
-            //            PostCode = cv.Address.PostCode,
-            //            Street = cv.Address.Street,
-            //            StreetNumber = cv.Address.StreetNumber
-            //        }
-            //    ,
-            //    EducationVmList = { 
-                    //new EducationVm()
-            //{
-            //    EducationStatus = cv.EducationList.ForEach(education => education.EducationStatus == ed),
-            //    EducationLevel = ,
-            //    Faculty = ,
-            //    Name = ,
-            //    Period = ,
-            //    StudyProgram = 
-            //}
-
-            //},
-            //Interest = new InterestVm {Hobby = cv.Interest.Hobby},
-            //Skill = new SkillVm
-            //{
-            //    Achievement = cv.Skill.Achievement, Description = cv.Skill.Description, Name = cv.Skill.Name
-            //},
-            //WorkExperience = new WorkExperienceVm
-            //{
-            //    Name = cv.WorkExperience.Name,
-            //    Position = cv.WorkExperience.Position,
-            //    Schedule = cv.WorkExperience.Schedule,
-            //    WorkStart = cv.WorkExperience.WorkStart,
-            //    WorkFinished = cv.WorkExperience.WorkFinished
-            //}
-        //};
             return cvVm;
         }
     }

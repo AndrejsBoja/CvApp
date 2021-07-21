@@ -16,7 +16,7 @@ namespace CvStorage.Services
 
         public IQueryable<T> Query<T>() where T : Entity
         {
-            throw new System.NotImplementedException();
+            return _entityContext.Set<T>();
         }
 
         public IEnumerable<T> Get<T>() where T : Entity
