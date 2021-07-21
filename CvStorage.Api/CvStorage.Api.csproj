@@ -207,6 +207,8 @@
     <Content Include="Views\Customer\ViewCv.cshtml" />
     <Content Include="Views\Partial\EducationList.cshtml" />
     <Content Include="Views\Partial\InterestList.cshtml" />
+    <Content Include="Views\Partial\WorkExperienceList.cshtml" />
+    <Content Include="Views\Partial\SkillList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

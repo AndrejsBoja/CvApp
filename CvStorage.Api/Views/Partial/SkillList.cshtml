@@ -1,0 +1,31 @@
+﻿@model CvStorage.Api.ViewModels.CvVm
+
+<h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Skill</h3>
+
+<div id="skill">
+    
+    @for (int i = 0; i < Model.SkillVmList.Count; i++)
+    {
+        <div class="skill-section">
+
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Skill</h5>
+                    @Html.TextBoxFor(model => model.SkillVmList[i].Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Skill" })
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Achievement</h5>
+                    @Html.TextBoxFor(model => model.SkillVmList[i].Achievement, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Achievement" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Description</h5>
+                    @Html.TextAreaFor(model => model.SkillVmList[i].Description, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Description" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<button id="addSkill" class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="button">Add skill</button>

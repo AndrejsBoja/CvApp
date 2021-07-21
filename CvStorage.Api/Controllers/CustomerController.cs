@@ -29,6 +29,7 @@ namespace CvStorage.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return View(cvVm);
+
             var personInfo = new PersonInfo()
             {
                 FirstName = cvVm.PersonInfo.FirstName,
