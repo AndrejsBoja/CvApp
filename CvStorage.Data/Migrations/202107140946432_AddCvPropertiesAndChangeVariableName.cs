@@ -23,14 +23,14 @@
             AddForeignKey("dbo.Cvs", "Education_Id", "dbo.Educations", "Id");
             AddForeignKey("dbo.Cvs", "Interest_Id", "dbo.Interests", "Id");
             AddForeignKey("dbo.Cvs", "PersonInfo_Id", "dbo.PersonInfoes", "Id");
-            AddForeignKey("dbo.Cvs", "Skill_Id", "dbo.Skills", "Id");
+            AddForeignKey("dbo.Cvs", "Skill_Id", "dbo.Skill", "Id");
             AddForeignKey("dbo.Cvs", "WorkExperience_Id", "dbo.WorkExperiences", "Id");
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Cvs", "WorkExperience_Id", "dbo.WorkExperiences");
-            DropForeignKey("dbo.Cvs", "Skill_Id", "dbo.Skills");
+            DropForeignKey("dbo.Cvs", "Skill_Id", "dbo.Skill");
             DropForeignKey("dbo.Cvs", "PersonInfo_Id", "dbo.PersonInfoes");
             DropForeignKey("dbo.Cvs", "Interest_Id", "dbo.Interests");
             DropForeignKey("dbo.Cvs", "Education_Id", "dbo.Educations");

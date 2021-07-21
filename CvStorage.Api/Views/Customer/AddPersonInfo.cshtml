@@ -45,185 +45,203 @@
 
     @using (Html.BeginForm("AddPersonInfo", "Customer", FormMethod.Post))
     {
-<form>
-    @*PROFILE INFO*@
-    <h5 style="margin-left: 35px">Profile info</h5>
-    <div class="row">
-        <div class="col">
-            @Html.TextAreaFor(model => model.PersonInfo.ProfileInfo, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Firstname</h5>
-            @Html.TextBoxFor(model => model.PersonInfo.FirstName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Lastname</h5>
-            @Html.TextBoxFor(model => model.PersonInfo.LastName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Phone number</h5>
-            @Html.TextBoxFor(model => model.PersonInfo.PhoneNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number" })
-        </div>
-    </div>
+        <form>
+            @*PROFILE INFO*@
+            <h5 style="margin-left: 35px">Profile info</h5>
+            <div class="row">
+                <div class="col">
+                    @Html.TextAreaFor(model => model.PersonInfo.ProfileInfo, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Firstname</h5>
+                    @Html.TextBoxFor(model => model.PersonInfo.FirstName, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Lastname</h5>
+                    @Html.TextBoxFor(model => model.PersonInfo.LastName, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Phone number</h5>
+                    @Html.TextBoxFor(model => model.PersonInfo.PhoneNumber, new {@class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number"})
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">E-mail</h5>
-            @Html.TextBoxFor(model => model.PersonInfo.Email, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail" })
-        </div>
-    </div>
-    @*PROFILE INFO END*@
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">E-mail</h5>
+                    @Html.TextBoxFor(model => model.PersonInfo.Email, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail"})
+                </div>
+            </div>
+            @*PROFILE INFO END*@
 
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*ADDRESS*@
-    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Address</h3>
+            @*ADDRESS*@
+            <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Address</h3>
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Country</h5>
-            @Html.TextBoxFor(model => model.Address.Country, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">City</h5>
-            @Html.TextBoxFor(model => model.Address.City, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Post code</h5>
-            @Html.TextBoxFor(model => model.Address.PostCode, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Post code" })
-        </div>
-    </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Country</h5>
+                    @Html.TextBoxFor(model => model.Address.Country, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">City</h5>
+                    @Html.TextBoxFor(model => model.Address.City, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Post code</h5>
+                    @Html.TextBoxFor(model => model.Address.PostCode, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Post code"})
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Street</h5>
-            @Html.TextBoxFor(model => model.Address.Street, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Street number</h5>
-            @Html.TextBoxFor(model => model.Address.StreetNumber, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Street number" })
-        </div>
-    </div>
-    @*ADDRESS END*@
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Street</h5>
+                    @Html.TextBoxFor(model => model.Address.Street, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Street number</h5>
+                    @Html.TextBoxFor(model => model.Address.StreetNumber, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Street number"})
+                </div>
+            </div>
+            @*ADDRESS END*@
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*WORK EXPERIENCE*@
+            @*WORK EXPERIENCE*@
 
-    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Work experience</h3>
+            <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Work experience</h3>
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Company name</h5>
-            @Html.TextBoxFor(model => model.WorkExperience.Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Company name" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Position</h5>
-            @Html.TextBoxFor(model => model.WorkExperience.Position, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Position" })
-        </div>
-    </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Company name</h5>
+                    @Html.TextBoxFor(model => model.WorkExperienceVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Company name"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Position</h5>
+                    @Html.TextBoxFor(model => model.WorkExperienceVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Position"})
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Schedule</h5>
-            @Html.TextBoxFor(model => model.WorkExperience.Schedule, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Schedule" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">From date</h5>
-            @Html.TextBoxFor(model => model.WorkExperience.WorkStart, new { @class = "form-control", type = "date", style = "margin-left: 50px; width: 350px", placeholder = "From date" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">To date</h5>
-            @Html.TextBoxFor(model => model.WorkExperience.WorkFinished, new { @class = "form-control", type = "date", style = "margin-left: 50px; width: 350px", placeholder = "To date" })
-        </div>
-    </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Schedule</h5>
+                    @Html.TextBoxFor(model => model.WorkExperienceVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Schedule"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">From date</h5>
+                    @Html.TextBoxFor(model => model.WorkExperienceVmList, new {@class = "form-control", type = "date", style = "margin-left: 50px; width: 350px", placeholder = "From date"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">To date</h5>
+                    @Html.TextBoxFor(model => model.WorkExperienceVmList, new {@class = "form-control", type = "date", style = "margin-left: 50px; width: 350px", placeholder = "To date"})
+                </div>
+            </div>
 
-    <button class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="submit">Add</button>
+            <button class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="submit">Add</button>
 
-    @*WORK EXPERIENCE END*@
+            @*WORK EXPERIENCE END*@
 
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*EDUCATION*@
+            @*EDUCATION*@
 
-    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Education</h3>
+            @Html.Partial("~/Views/Partial/EducationList.cshtml", Model)
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Name of Educational Institution</h5>
-            @Html.TextBoxFor(model => model.Education.Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Name of Educational Institution" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Faculty</h5>
-            @Html.TextBoxFor(model => model.Education.Faculty, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Faculty" })
-        </div>
-    </div>
+            @*EDUCATION END*@
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Education level</h5>
-            @Html.TextBoxFor(model => model.Education.EducationLevel, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Education level" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Study program</h5>
-            @Html.TextBoxFor(model => model.Education.StudyProgram, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Study program" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Period in years</h5>
-            @Html.TextBoxFor(model => model.Education.Period, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Period in years" })
-        </div>
-    </div>
-    <button class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="submit">Add</button>
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*EDUCATION END*@
+            @*SKILLS*@
 
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Skill</h3>
 
-    @*SKILLS*@
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Skill</h5>
+                    @Html.TextBoxFor(model => model.SkillVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Skill"})
+                </div>
+                <div class="col">
+                    <h5 style="margin-left: 50px">Achievement</h5>
+                    @Html.TextBoxFor(model => model.SkillVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Achievement"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 50px">Description</h5>
+                    @Html.TextAreaFor(model => model.SkillVmList, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Description"})
+                </div>
+            </div>
+            <button class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="submit">Add</button>
 
-    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Skill</h3>
+            @*SKILLS END*@
 
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Skill</h5>
-            @Html.TextBoxFor(model => model.Skills.Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Skill" })
-        </div>
-        <div class="col">
-            <h5 style="margin-left: 50px">Achievement</h5>
-            @Html.TextBoxFor(model => model.Skills.Achievement, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Achievement" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 50px">Description</h5>
-            @Html.TextAreaFor(model => model.Skills.Description, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Description" })
-        </div>
-    </div>
-    <button class="btn btn-warning" style="margin-left: 46%; margin-bottom: -90px; margin-top: -3%; min-width: 60px" type="submit">Add</button>
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*SKILLS END*@
+            @*INTEREST*@
+            @Html.Partial("~/Views/Partial/InterestList.cshtml", Model)
+            @*INTEREST END*@
 
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
 
-    @*INTEREST*@
-    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Interest</h3>
-
-    <div class="row">
-        <div class="col">
-            <h5 style="margin-left: 370px">Interest</h5>
-            @Html.TextBoxFor(model => model.Interest.Hobby, new { @class = "form-control", type = "text", style = "margin-left: 370px; width: 350px", placeholder = "Interest" })
-        </div>
-        <div class="col">
-            <button class="btn btn-warning" style="margin-left: 2%; margin-bottom: -57%; margin-top: 1%; min-width: 60px" type="submit">Add</button>
-        </div>
-    </div>
-    @*INTEREST END*@
-
-    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-
-    <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
-</form>
+            @*<button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>*@
+        </form>
     }
 
 </div>
+
+<script type="text/javascript">
+    $("#addEducation").click(
+            function () {
+                console.log('triggered');
+                let count = $(".education-section").length;
+                $("#education").append(
+                    '<div class="education-section">' +
+                        '<div class="row">' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Name of Educational Institution</h5>' +
+                    '<input class="form-control" id="EducationVmList_' + count + '__Name" name="EducationVmList[' + count +'].Name" placeholder="Name of Educational Institution" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Faculty</h5>' +
+                    '<input class="form-control" id="EducationVmList_' + count + '__Faculty" name="EducationVmList[' + count +'].Faculty" placeholder="Faculty" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Study program</h5>' +
+                    '<input class="form-control" id="EducationVmList_' + count + '__StudyProgram" name="EducationVmList[' + count +'].StudyProgram" placeholder="Study program" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Education level</h5>' +
+                                '<input class="form-control" id="EducationVmList_' + count + '__EducationLevel" name="EducationVmList[' + count +'].EducationLevel" placeholder="Education level" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Education status</h5>' +
+                                '<input class="form-control" id="EducationVmList_' + count + '__EducationStatus" name="EducationVmList[' + count +'].EducationStatus" placeholder="Education status" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                            '<div class="col">' +
+                                '<h5 style="margin-left: 50px">Period in years</h5>' +
+                                '<input class="form-control" id="EducationVmList_' + count + '__Period" name="EducationVmList[' + count +'].Period" placeholder="Period in years" style="margin-left: 50px; width: 350px" type="text" value="">'+
+                            '</div>' +
+                        '</div>' +
+                    '</div>');
+        });
+
+    $("#addInterest").click(
+        function () {
+            console.log('triggered');
+            let count = $(".interest-section").length;
+            $("#interest").append(
+                '<div class="interest-section">' +
+                    '<div class="row">' +
+                        '<div class="col">' +
+                            '<<h5 style="margin-left: 370px">Interest</h5>' +
+                            '<input class="form-control" id="InterestVmList_' + count + '__Hobby" name="InterestVmList[' + count + '].Hobby" placeholder="Interest" style="margin-left: 50px; width: 350px" type="text" value="">' +
+                        '</div>' +
+                    '</div>' +
+                '</div>');
+        });
+</script>
+

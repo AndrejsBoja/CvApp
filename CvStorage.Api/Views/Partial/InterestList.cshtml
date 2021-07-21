@@ -1,0 +1,20 @@
+﻿@model CvStorage.Api.ViewModels.CvVm
+
+<h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Interest</h3>
+
+<div id="interest">
+    @for (int i = 0; i < Model.InterestVmList.Count; i++)
+    {
+        <div class="interest-section">
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-left: 370px">Interest</h5>
+                    @Html.TextBoxFor(model => model.InterestVmList[i].Hobby, new { @class = "form-control", type = "text", style = "margin-left: 370px; width: 350px", placeholder = "Interest" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+    <button id="addInterest" class="btn btn-warning" style="margin-left: 45%; min-width: 60px" type="button">Add Interest</button>

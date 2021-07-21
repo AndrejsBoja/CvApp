@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ChangedSkillClassName : DbMigration
+    public partial class ChangedEducationStatusVariable : DbMigration
     {
         public override void Up()
         {
-            RenameTable(name: "dbo.WorkExperienceSkills", newName: "Skill");
+            AddColumn("dbo.Educations", "EducationStatus", c => c.String());
         }
         
         public override void Down()
         {
-            RenameTable(name: "dbo.Skill", newName: "WorkExperienceSkills");
+            DropColumn("dbo.Educations", "EducationStatus");
         }
     }
 }

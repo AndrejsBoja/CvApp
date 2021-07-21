@@ -1,4 +1,5 @@
-﻿@model CvStorage.Api.ViewModels.CvVm
+﻿@using CvStorage.Core
+@model CvStorage.Api.ViewModels.CvVm
 
 @{
     ViewBag.Title = "AddPersonInfo";
@@ -27,25 +28,71 @@
         text-align: center;
     }
 </style>
-
+@*PROFILE INFO*@
 <div class="jumbotron">
-    @*PROFILE INFO ICON AND HEADER*@
-    <div style="margin-left: 2%;margin-top: 20px">
-        <span class="IconTitle">
-            <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
-        </span>
-        <h3 style="margin-left:10%; margin-top: -5%; margin-bottom: 90px;">Personal Info</h3>
+    <div style="margin-left: 2%; margin-top: 20px">
+        <div class="jumbotron">
+            <span class="IconTitle">
+                <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
+            </span>
+            <h2 style="margin-left: 10%; margin-top: -6%; margin-bottom: 50px; color: #269abc">@Model.PersonInfo.FirstName @Model.PersonInfo.LastName </h2>
+            <div>
+                <b>Profile info :</b> @Model.PersonInfo.ProfileInfo
+            </div>
+
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba">
+
+            <div>
+                <b>E-mail :</b> @Model.PersonInfo.Email
+                <b style="margin-left: 70px"> Phone :</b> @Model.PersonInfo.PhoneNumber
+                <b style="margin-left: 70px"> Address :</b> @Model.Address.Country, @Model.Address.City, @Model.Address.Street
+                <b style="margin-left: 70px"> Post code : </b> @Model.Address.PostCode
+            </div>
+        </div>
     </div>
-    @*PROFILE INFO ICON AND HEADER END*@
+    @*PROFILE INFO END*@
 
+    @*EDUCATION*@
+    <div style="margin-left: 2%; margin-top: 20px">
+        <div class="jumbotron">
+            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Education</h2>
+            <div><text style="font-size: x-large"> @*@Model.Education.Name*@</text>, @*@Model.Education.Faculty, @Model.Education.StudyProgram, @Model.Education.EducationStatus, @Model.Education.Period*@</div>
 
-    <h4>@Model.PersonInfo.FirstName @Model.PersonInfo.LastName</h4>
+        </div>
+    </div>
+    @*EDUCATION END*@
+
+    @*WORK EXPERIENCE*@
+    <div style="margin-left: 2%; margin-top: 20px">
+        <div class="jumbotron">
+            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Work experience</h2>
+            <div><text style="font-size: x-large">@*@Model.WorkExperience.Name*@</text>, @*@Model.WorkExperience.Position, @Model.WorkExperience.Schedule*@ <b>(</b> @*@Model.WorkExperience.WorkStart*@<b> - </b> @*@Model.WorkExperience.WorkFinished*@<b>)</b></div>
+
+        </div>
+    </div>
+    @*WORK EXPERIENCE END*@
+
+    @*SKILLS AND INTERESTS*@
+    <div style="margin-left: 2%; margin-top: 20px">
+        <div class="jumbotron">
+            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Skill </h2>
+            <div><text style="font-size: x-large">@*@Model.Skill.Name*@</text>, @*@Model.Skill.Achievement, @Model.Skill.Description*@</div>
+
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba">
+
+            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Interests </h2>
+            <span class="badge" style="width: 100px; height: 40px">
+                <div style="margin-top: 10px">@*@Model.Interest.Hobby*@</div>
+            </span>
+        </div>
+    </div>
+
+    @*SKILLS AND INTERESTS END*@
+
 </div>
 
 
-
-
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
     @Html.ActionLink("Back to List", "GetCvList")
 </p>

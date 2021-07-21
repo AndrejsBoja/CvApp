@@ -72,6 +72,22 @@
     <Compile Include="Migrations\202107190911438_ChangedStreetnumberTOstring.designer.cs">
       <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107191546239_ChangedEducationStatusVariable.cs" />
+    <Compile Include="Migrations\202107191546239_ChangedEducationStatusVariable.designer.cs">
+      <DependentUpon>202107191546239_ChangedEducationStatusVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107201113188_TestAddedList.cs" />
+    <Compile Include="Migrations\202107201113188_TestAddedList.designer.cs">
+      <DependentUpon>202107201113188_TestAddedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107201148423_SomeClassesChangedToLists.cs" />
+    <Compile Include="Migrations\202107201148423_SomeClassesChangedToLists.designer.cs">
+      <DependentUpon>202107201148423_SomeClassesChangedToLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107210758261_test.cs" />
+    <Compile Include="Migrations\202107210758261_test.designer.cs">
+      <DependentUpon>202107210758261_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +116,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107190911438_ChangedStreetnumberTOstring.resx">
       <DependentUpon>202107190911438_ChangedStreetnumberTOstring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107191546239_ChangedEducationStatusVariable.resx">
+      <DependentUpon>202107191546239_ChangedEducationStatusVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107201113188_TestAddedList.resx">
+      <DependentUpon>202107201113188_TestAddedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107201148423_SomeClassesChangedToLists.resx">
+      <DependentUpon>202107201148423_SomeClassesChangedToLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107210758261_test.resx">
+      <DependentUpon>202107210758261_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

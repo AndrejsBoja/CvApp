@@ -1,4 +1,6 @@
-﻿namespace CvStorage.Api.ViewModels
+﻿using System.Collections.Generic;
+
+namespace CvStorage.Api.ViewModels
 {
     public class WorkExperienceVm 
     {

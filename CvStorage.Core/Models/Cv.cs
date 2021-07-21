@@ -1,12 +1,23 @@
-﻿namespace CvStorage.Core
+﻿using System.Collections.Generic;
+using System.Dynamic;
+
+namespace CvStorage.Core
 {
-    public class Cv : Entity
+    public class Cv : Entity // sealed pieliku
     {
-        public virtual PersonInfo PersonInfo { get; set; }
-        public virtual Address Address { get; set; }
-        public virtual Education Education { get; set; }
-        public virtual WorkExperience WorkExperience { get; set; }
-        public virtual Skills Skill { get; set; } // change class name to skill
-        public virtual Interest Interest { get; set; } // lazy loading pie pievienosanas validacijas jauztaisa
+        public Cv()
+        {
+            EducationList = new List<Education>();
+            WorkExperienceList = new List<WorkExperience>();
+            SkillList = new List<Skill>();
+            InterestList = new List<Interest>();
+        }
+
+        public PersonInfo PersonInfo { get; set; }
+        public Address Address { get; set; }
+        public List<Education> EducationList { get; set; }
+        public List<WorkExperience> WorkExperienceList { get; set; }
+        public List<Skill> SkillList { get; set; } 
+        public List<Interest> InterestList { get; set; }
     }
 }

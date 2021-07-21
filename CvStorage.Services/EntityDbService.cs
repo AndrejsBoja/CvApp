@@ -40,9 +40,11 @@ namespace CvStorage.Services
             throw new System.NotImplementedException();
         }
 
-        public void Delete<T>(T entity) where T : Entity
+        public void Delete<T>(int id) where T : Entity
         {
-            _entityContext.Set<T>().Remove(entity);
+            var cv = GetById<T>(id);
+            if (cv == null) return;
+            _entityContext.Set<T>().Remove(cv);
             _entityContext.SaveChanges();
         }
     }

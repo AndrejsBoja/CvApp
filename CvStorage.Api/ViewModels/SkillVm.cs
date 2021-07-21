@@ -1,6 +1,6 @@
 ﻿namespace CvStorage.Api.ViewModels
 {
-    public class SkillsVm 
+    public class SkillVm 
     {
         public string Name { get; set; }
         public string Description { get; set; }

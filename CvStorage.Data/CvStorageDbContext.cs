@@ -17,6 +17,6 @@ namespace CvStorage.Data
         public DbSet<Education> Educations { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
-        public DbSet<Skills> WorkExperienceSkills { get; set; }
+        public DbSet<Skill> WorkExperienceSkills { get; set; }
     }
 }

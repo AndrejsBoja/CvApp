@@ -77,7 +77,7 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Skills",
+                "dbo.Skill",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -91,7 +91,7 @@
         
         public override void Down()
         {
-            DropTable("dbo.Skills");
+            DropTable("dbo.Skill");
             DropTable("dbo.WorkExperiences");
             DropTable("dbo.PersonInfoes");
             DropTable("dbo.Interests");

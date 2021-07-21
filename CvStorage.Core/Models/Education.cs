@@ -7,12 +7,7 @@
         public string StudyProgram { get; set; }
         public string EducationLevel { get; set; }
         public int Period { get; set; }
-        public enum EducationStatus
-        {
-            Studying = 1,
-            Break = 2,
-            Unfinished = 3,
-            Finished = 4
-        }
+        public string EducationStatus { get; set; }
+        public int CvId { get; set; } 
     }
 }

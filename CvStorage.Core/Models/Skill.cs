@@ -1,6 +1,6 @@
 ﻿namespace CvStorage.Core
 {
-    public class Skills : Entity
+    public class Skill : Entity
     {
         public string Name { get; set; }
         public string Description { get; set; }
