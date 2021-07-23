@@ -31,16 +31,16 @@ namespace CvStorage.Api.Controllers
 
             var personInfo = new PersonInfo()
             {
-                Id = cvVm.Id,
+                Id = cvVm.PersonInfo.Id,
                 FirstName = cvVm.PersonInfo.FirstName,
                 LastName = cvVm.PersonInfo.LastName,
                 Email = cvVm.PersonInfo.Email,
                 PhoneNumber = cvVm.PersonInfo.PhoneNumber,
-                ProfileInfo = cvVm.PersonInfo.ProfileInfo,
+                ProfileInfo = cvVm.PersonInfo.ProfileInfo
             };
             var address = new Address()
             {
-                Id = cvVm.Id,
+                Id = cvVm.Address.Id,
                 City = cvVm.Address.City,
                 Country = cvVm.Address.Country,
                 PostCode = cvVm.Address.PostCode,
