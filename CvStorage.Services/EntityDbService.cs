@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using CvStorage.Core;
 using CvStorage.Core.Services;
@@ -37,7 +38,8 @@ namespace CvStorage.Services
 
         public void Update<T>(T entity) where T : Entity
         {
-            throw new System.NotImplementedException();
+            _entityContext.Set<T>().AddOrUpdate(entity);
+            _entityContext.SaveChanges();
         }
 
         public void Delete<T>(int id) where T : Entity

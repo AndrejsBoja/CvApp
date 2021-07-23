@@ -20,7 +20,6 @@ namespace CvStorage.Api.Controllers
         public ActionResult CreateCv()
         {
             var model = new CvVm();
-            model.EducationVmList.Add(new EducationVm{EducationLevel = string.Empty, EducationStatus = string.Empty, Faculty = string.Empty, Name = string.Empty, Period = 0, StudyProgram = string.Empty});
             return View("AddPersonInfo", model);
         }
 
@@ -32,6 +31,7 @@ namespace CvStorage.Api.Controllers
 
             var personInfo = new PersonInfo()
             {
+                Id = cvVm.Id,
                 FirstName = cvVm.PersonInfo.FirstName,
                 LastName = cvVm.PersonInfo.LastName,
                 Email = cvVm.PersonInfo.Email,
@@ -40,6 +40,7 @@ namespace CvStorage.Api.Controllers
             };
             var address = new Address()
             {
+                Id = cvVm.Id,
                 City = cvVm.Address.City,
                 Country = cvVm.Address.Country,
                 PostCode = cvVm.Address.PostCode,
@@ -51,6 +52,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newEducation = new Education()
                 {
+                    Id = cvVm.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
                     Name = education.Name,
@@ -66,6 +68,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newInterest = new Interest()
                 {
+                    Id = interest.Id, 
                     Hobby = interest.Hobby
                 };
                 interestList.Add(newInterest);
@@ -75,6 +78,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newSkill = new Skill()
                 {
+                    Id = skill.Id,
                     Achievement = skill.Achievement,
                     Description = skill.Description,
                     Name = skill.Name
@@ -86,6 +90,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newWorkExperience = new WorkExperience()
                 {
+                    Id = workExperience.Id,
                     Name = workExperience.Name,
                     Position = workExperience.Position,
                     Schedule = workExperience.Schedule,
@@ -109,7 +114,7 @@ namespace CvStorage.Api.Controllers
                 _entityDbService.Create(createdCv);
             else
             {
-                //update
+              _entityDbService.Update(createdCv);
             }
 
             return RedirectToAction("GetCvList");
@@ -149,6 +154,7 @@ namespace CvStorage.Api.Controllers
         {
             var personInfoVm = new PersonInfoVm()
             {
+                Id = cv.PersonInfo.Id,
                 Email = cv.PersonInfo.Email,
                 FirstName = cv.PersonInfo.FirstName,
                 LastName = cv.PersonInfo.LastName,
@@ -157,6 +163,7 @@ namespace CvStorage.Api.Controllers
             };
             var addressVm = new AddressVm()
             {
+                Id = cv.Address.Id,
                 City = cv.Address.City,
                 Country = cv.Address.Country,
                 PostCode = cv.Address.PostCode,
@@ -168,6 +175,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newEducationVm = new EducationVm()
                 {
+                    Id = education.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
                     Name = education.Name,
@@ -183,6 +191,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newInterestVm = new InterestVm()
                 {
+                    Id = interest.Id,
                     Hobby = interest.Hobby
                 };
                 interestVmList.Add(newInterestVm);
@@ -192,6 +201,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newSkillVm = new SkillVm()
                 {
+                    Id = skill.Id,
                     Achievement = skill.Achievement,
                     Description = skill.Description,
                     Name = skill.Name
@@ -203,6 +213,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newWorkExperienceVm = new WorkExperienceVm()
                 {
+                    Id = workExperience.Id,
                     Name = workExperience.Name,
                     Position = workExperience.Position,
                     Schedule = workExperience.Schedule,

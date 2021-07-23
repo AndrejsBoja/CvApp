@@ -37,16 +37,16 @@
             </span>
             <h2 style="margin-left: 10%; margin-top: -6%; margin-bottom: 50px; color: #269abc">@Model.PersonInfo.FirstName @Model.PersonInfo.LastName </h2>
             <div>
-                <b>Profile info :</b> @Model.PersonInfo.ProfileInfo
+                <text style="font-size: large">Profile info :</text> @Model.PersonInfo.ProfileInfo
             </div>
 
             <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba">
 
             <div>
-                <b>E-mail :</b> @Model.PersonInfo.Email
-                <b style="margin-left: 70px"> Phone :</b> @Model.PersonInfo.PhoneNumber
-                <b style="margin-left: 70px"> Address :</b> @Model.Address.Country, @Model.Address.City, @Model.Address.Street
-                <b style="margin-left: 70px"> Post code : </b> @Model.Address.PostCode
+                <text style="font-size: large">E-mail :</text><a href="mailto:@Model.PersonInfo.Email"> @Model.PersonInfo.Email</a>
+                <text style="margin-left: 60px;font-size: large"> Phone :</text> @Model.PersonInfo.PhoneNumber
+                <text style="margin-left: 60px;font-size: large"> Address :</text> @Model.Address.Country, @Model.Address.City, @Model.Address.Street
+                <text style="margin-left: 60px;font-size: large"> Post code : </text> @Model.Address.PostCode
             </div>
         </div>
     </div>
@@ -56,8 +56,10 @@
     <div style="margin-left: 2%; margin-top: 20px">
         <div class="jumbotron">
             <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Education</h2>
-            <div><text style="font-size: x-large"> @*@Model.Education.Name*@</text>, @*@Model.Education.Faculty, @Model.Education.StudyProgram, @Model.Education.EducationStatus, @Model.Education.Period*@</div>
-
+            @foreach (var item in Model.EducationVmList)
+            {
+        <div><text style="font-size: x-large"> @item.Name </text>&nbsp;|&nbsp; <text style="font-size: large">@item.Faculty</text> &nbsp; | &nbsp; @item.StudyProgram &nbsp; | &nbsp; @item.EducationStatus &nbsp; | &nbsp; @item.Period years</div>
+            }
         </div>
     </div>
     @*EDUCATION END*@
@@ -66,8 +68,10 @@
     <div style="margin-left: 2%; margin-top: 20px">
         <div class="jumbotron">
             <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Work experience</h2>
-            <div><text style="font-size: x-large">@*@Model.WorkExperience.Name*@</text>, @*@Model.WorkExperience.Position, @Model.WorkExperience.Schedule*@ <b>(</b> @*@Model.WorkExperience.WorkStart*@<b> - </b> @*@Model.WorkExperience.WorkFinished*@<b>)</b></div>
-
+            @foreach (var item in Model.WorkExperienceVmList)
+            {
+        <div><text style="font-size: x-large">@item.Name</text> &nbsp; | &nbsp; <text style="font-size: large">@item.Position</text> &nbsp; | &nbsp; @item.Schedule &nbsp; | &nbsp; @item.WorkStart - @item.WorkFinished</div>
+            }
         </div>
     </div>
     @*WORK EXPERIENCE END*@
@@ -75,24 +79,31 @@
     @*SKILLS AND INTERESTS*@
     <div style="margin-left: 2%; margin-top: 20px">
         <div class="jumbotron">
-            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Skill </h2>
-            <div><text style="font-size: x-large">@*@Model.Skill.Name*@</text>, @*@Model.Skill.Achievement, @Model.Skill.Description*@</div>
+            <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Skills</h2>
+            @foreach (var item in Model.SkillVmList)
+            {
+        <div><text style="font-size: x-large">@item.Name</text> &nbsp; | &nbsp; <text style="font-size: large"> @item.Achievement </text> &nbsp; | &nbsp; @item.Description</div>
+            }
 
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba">
+            <hr style="height: 2px; border-width: 0; margin-bottom: 30px; color: #158cba; background-color: #158cba">
 
             <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Interests </h2>
-            <span class="badge" style="width: 100px; height: 40px">
-                <div style="margin-top: 10px">@*@Model.Interest.Hobby*@</div>
-            </span>
+            @foreach (var item in Model.InterestVmList)
+            {
+                <span class="badge" style="width: 100px; height: 40px">
+                    <div style="margin-top: 10px">@item.Hobby</div>
+                </span>
+            }
         </div>
     </div>
-
     @*SKILLS AND INTERESTS END*@
-
+    
+    <div style="margin-left: 80%" >
+        <button class="btn btn-info btn-lg" style="color: white">
+            @Html.ActionLink("Edit Cv", "Edit", new {id = Model.Id})
+        </button>
+        <button class="btn btn-dark btn-lg">
+            @Html.ActionLink("Back to List", "GetCvList", new { @class="btn btn-primary"})
+        </button>
+    </div>
 </div>
-
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
-    @Html.ActionLink("Back to List", "GetCvList")
-</p>

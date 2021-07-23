@@ -127,7 +127,7 @@
 
             @*INTEREST*@
             @Html.Partial("~/Views/Partial/InterestList.cshtml", Model)
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 50px">
             @*INTEREST END*@
 
             <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
@@ -169,10 +169,14 @@
                             '<div class="col">' +
                                 '<h5 style="margin-left: 50px">Period in years</h5>' +
                                 '<input class="form-control" id="EducationVmList_' + count + '__Period" name="EducationVmList[' + count +'].Period" placeholder="Period in years" style="margin-left: 50px; width: 350px" type="text" value="">'+
-                            '</div>' +
+                    '</div>' +
+                    '<div>' +
+                    '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                    '</div>' +
                         '</div>' +
                     '</div>');
         });
+   
 
     $("#addWorkExperience").click(
         function () {
@@ -197,25 +201,19 @@
                     '</div>' +
                     '<div class="col">' +
                         '<h5 style="margin-left: 50px">From date</h5>' +
-                '<input class="form-control" id="WorkExperienceVmList_' + count + '__WorkStart" name="WorkExperienceVmList[' + count + '].WorkStart" placeholder="From date" style="margin-left: 50px; width: 350px" type="text" value="">' +
+                '<input class="form-control" id="WorkExperienceVmList_' + count + '__WorkStart" name="WorkExperienceVmList[' + count + '].WorkStart" placeholder="From date" style="margin-left: 50px; width: 350px" type="date" value="">' +
                     '</div>' +
                     '<div class="col">' +
-                        '<h5 style="margin-left: 50px">To date</h5>' + 
-                '<input class="form-control" id="WorkExperienceVmList_' + count + '__WorkFinished" name="WorkExperienceVmList[' + count + '].WorkFinished" placeholder="To date" style="margin-left: 50px; width: 350px" type="text" value="">' +
+                        '<h5 style="margin-left: 50px">To date</h5>' +
+                '<input class="form-control" id="WorkExperienceVmList_' + count + '__WorkFinished" name="WorkExperienceVmList[' + count + '].WorkFinished" placeholder="To date" style="margin-left: 50px; width: 350px" type="date" value="">' +
                 '</div>' +
                 '<div>' +
-                    '<button class="remove" type="button">delete</button>'+
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
                 '</div>' +
                 '</div>' +
                 '</div>');
         });
-    $("body").on("click",
-        ".remove",
-        function (e) {
-            console.log($(e.target).closest(".workExperience-section"));
-            let workSection = $(e.target).closest(".workExperience-section");
-            $(workSection).remove();
-        });
+
     $("#addInterest").click(
         function () {
             console.log('triggered');
@@ -226,7 +224,10 @@
                         '<div class="col">' +
                             '<h5 style="margin-left: 370px">Interest</h5>' +
                             '<input class="form-control" id="InterestVmList_' + count + '__Hobby" name="InterestVmList[' + count + '].Hobby" placeholder="Interest" style="margin-left: 370px; width: 350px" type="text" value="">' +
-                        '</div>' +
+                '</div>' +
+                '<div>' +
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -15px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                '</div>' +
                     '</div>' +
                 '</div>');
         });
@@ -251,9 +252,26 @@
                         '<div class="col">' +
                             '<h5 style="margin-left: 50px">Description</h5>' +
                             '<input class="form-control" id="SkillVmList_' + count + '__Description" name="SkillVmList[' + count + '].Description" placeholder="Description" style="margin-left: 50px; min-width: 940px" type="text" value="">' +
-                        '</div>' +
+                '</div>' +
+                '<div>' +
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                '</div>' +
                     '</div>' +
                 '</div>');
+        });
+
+    $("body").on("click",
+        ".remove",
+        function (e) {
+            console.log($(e.target).closest(".workExperience-section"));
+            let workSection = $(e.target).closest(".workExperience-section");
+            let educationSection = $(e.target).closest(".education-section");
+            let interestSection = $(e.target).closest(".interest-section-section");
+            let skillSection = $(e.target).closest(".skill-section");
+            $(workSection).remove();
+            $(educationSection).remove();
+            $(interestSection).remove();
+            $(skillSection).remove();
         });
 </script>
 
