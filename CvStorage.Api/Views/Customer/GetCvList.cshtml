@@ -70,7 +70,7 @@
                         @using (Html.BeginForm("DeleteCvById", "Customer", FormMethod.Post))
                         {
                             <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-warning col-lg-2 col-lg-offset-1"><span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span></button>
-
+                            @*VAJAG UZLIKT CONFIRM TO DELETE*@
                         }
                         </td>
                 </tr>
@@ -99,6 +99,16 @@
                 });
         });
 
+        @*EDIT BUTTON*@
+        $(document).ready(function() {
+            $("body").on("click",
+                ".btn-primary",
+                function(i) {
+                    let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
+
+                    window.location = location.href = `@Url.Action("EditCv", "Customer")?id=${id}`;
+                });
+        });
 
     </script>
 </div>

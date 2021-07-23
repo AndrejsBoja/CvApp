@@ -12,7 +12,6 @@ namespace CvStorage.Api.ViewModels
             SkillVmList = new List<SkillVm>();
             InterestVmList = new List<InterestVm>();
         }
-
         public int Id { get; set; }
         public PersonInfoVm PersonInfo { get; set; }
         public AddressVm Address { get; set; }
@@ -20,6 +19,5 @@ namespace CvStorage.Api.ViewModels
         public List<WorkExperienceVm> WorkExperienceVmList { get; set; }
         public List<SkillVm> SkillVmList { get; set; }
         public List<InterestVm> InterestVmList { get; set; }
-
     }
 }

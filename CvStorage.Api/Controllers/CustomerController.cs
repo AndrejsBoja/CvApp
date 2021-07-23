@@ -26,8 +26,8 @@ namespace CvStorage.Api.Controllers
         [HttpPost] 
         public ActionResult AddPersonInfo(CvVm cvVm)
         {
-            if (!ModelState.IsValid)
-                return View(cvVm);
+            //if (!ModelState.IsValid)
+            //    return View(cvVm);
 
             var personInfo = new PersonInfo()
             {
@@ -52,7 +52,8 @@ namespace CvStorage.Api.Controllers
             {
                 var newEducation = new Education()
                 {
-                    Id = cvVm.Id,
+                    CvId = cvVm.Id, // kapec viņu vajag  ? un kapec vajag CV klasi klat ?
+                    Id = education.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
                     Name = education.Name,
@@ -68,6 +69,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newInterest = new Interest()
                 {
+                    CvId = cvVm.Id,
                     Id = interest.Id, 
                     Hobby = interest.Hobby
                 };
@@ -78,6 +80,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newSkill = new Skill()
                 {
+                    CvId = cvVm.Id,
                     Id = skill.Id,
                     Achievement = skill.Achievement,
                     Description = skill.Description,
@@ -90,6 +93,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newWorkExperience = new WorkExperience()
                 {
+                    CvId = cvVm.Id,
                     Id = workExperience.Id,
                     Name = workExperience.Name,
                     Position = workExperience.Position,
@@ -102,6 +106,7 @@ namespace CvStorage.Api.Controllers
          
             var createdCv = new Cv()
             {
+                Id = cvVm.Id,
                 PersonInfo = personInfo,
                 Address = address,
                 EducationList = educationList,
@@ -110,23 +115,33 @@ namespace CvStorage.Api.Controllers
                 WorkExperienceList = workExperienceList
             };
 
-            if(cvVm.Id == 0)
+            if (cvVm.Id == 0)
+            {
                 _entityDbService.Create(createdCv);
+            }
             else
             {
-              _entityDbService.Update(createdCv);
+                _entityDbService.Update(createdCv); 
             }
 
             return RedirectToAction("GetCvList");
         }
 
-        [Route("http://localhost:8080/"), HttpGet]
+        [HttpGet]
         public ActionResult GetCvList()
         {
             var cvList = _entityDbService.Get<Cv>();
             var cvVmList = cvList.Select(MapToVm).ToList();
 
             return View(cvVmList);
+        }
+
+        [HttpGet]
+        public ActionResult EditCv(int id)
+        {
+            var cv = _entityDbService.GetById<Cv>(id);
+            var model = MapToVm(cv);
+            return View("AddPersonInfo", model);
         }
 
         public ActionResult ViewCv(int id)
@@ -136,7 +151,7 @@ namespace CvStorage.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult UpdateCv(int id)
+        public ActionResult UpdateCvById(int id)
         {
             var cv = _entityDbService.GetById<Cv>(id);
             var model = MapToVm(cv);
@@ -176,6 +191,7 @@ namespace CvStorage.Api.Controllers
                 var newEducationVm = new EducationVm()
                 {
                     Id = education.Id,
+                    //Id = education.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
                     Name = education.Name,

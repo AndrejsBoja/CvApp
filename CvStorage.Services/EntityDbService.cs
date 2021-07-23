@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using CvStorage.Core;
 using CvStorage.Core.Services;
 using CvStorage.Data;
@@ -36,9 +38,13 @@ namespace CvStorage.Services
             _entityContext.SaveChanges();
         }
 
-        public void Update<T>(T entity) where T : Entity
+        public void Update<T>(T entity) where T : Entity // vai pareizi ?
         {
-            _entityContext.Set<T>().AddOrUpdate(entity);
+            //_entityContext.Set<T>().AddOrUpdate(entity);
+            //_entityContext.Set<T>().Attach(entity);
+            //_entityContext.SaveChanges();
+           
+            _entityContext.Entry(entity).State = EntityState.Modified;
             _entityContext.SaveChanges();
         }
 

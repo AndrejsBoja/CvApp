@@ -1,4 +1,5 @@
-﻿@model CvStorage.Api.ViewModels.CvVm
+﻿@using System.Security.Cryptography.X509Certificates
+@model CvStorage.Api.ViewModels.CvVm
 
 @{
     ViewBag.Title = "AddPersonInfo";
@@ -44,94 +45,124 @@
 
     @using (Html.BeginForm("AddPersonInfo", "Customer", FormMethod.Post))
     {
-        <form>
-            @Html.HiddenFor(m => m.Id)
-            @*PROFILE INFO*@
-            <h5 style="margin-left: 35px">Profile info</h5>
-            <div class="row">
-                <div class="col">
-                    @Html.TextAreaFor(model => model.PersonInfo.ProfileInfo, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info"})
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 style="margin-left: 50px">Firstname</h5>
-                    @Html.TextBoxFor(model => model.PersonInfo.FirstName, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname"})
-                </div>
-                <div class="col">
-                    <h5 style="margin-left: 50px">Lastname</h5>
-                    @Html.TextBoxFor(model => model.PersonInfo.LastName, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname"})
-                </div>
-                <div class="col">
-                    <h5 style="margin-left: 50px">Phone number</h5>
-                    @Html.TextBoxFor(model => model.PersonInfo.PhoneNumber, new {@class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number"})
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 style="margin-left: 50px">E-mail</h5>
-                    @Html.TextBoxFor(model => model.PersonInfo.Email, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail"})
-                </div>
-            </div>
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-            @*PROFILE INFO END*@
+<form>
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.PersonInfo.Id)
+    @Html.HiddenFor(m => m.Address.Id)
+
+    @for (int i = 0; i < Model.EducationVmList.Count; i++)
+    {
+       
+        @Html.HiddenFor(m => m.EducationVmList[i].Id)
+    
+    }
+    
+    @for (int i = 0; i < Model.SkillVmList.Count; i++)
+    {
+        @Html.HiddenFor(m => m.SkillVmList[i].Id)
+
+    }
+    
+    @for (int i = 0; i < Model.InterestVmList.Count; i++)
+    {
+        @Html.HiddenFor(m => m.InterestVmList[i].Id)
+
+    }
+    
+    @for (int i = 0; i < Model.WorkExperienceVmList.Count; i++)
+    {
+        @Html.HiddenFor(m => m.WorkExperienceVmList[i].Id)
+
+    }
+    
+   
+    
+
+    @*PROFILE INFO*@
+    <h5 style="margin-left: 35px">Profile info</h5>
+    <div class="row">
+        <div class="col">
+            @Html.TextAreaFor(model => model.PersonInfo.ProfileInfo, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Profile info" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 style="margin-left: 50px">Firstname</h5>
+            @Html.TextBoxFor(model => model.PersonInfo.FirstName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Firstname" })
+        </div>
+        <div class="col">
+            <h5 style="margin-left: 50px">Lastname</h5>
+            @Html.TextBoxFor(model => model.PersonInfo.LastName, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Lastname" })
+        </div>
+        <div class="col">
+            <h5 style="margin-left: 50px">Phone number</h5>
+            @Html.TextBoxFor(model => model.PersonInfo.PhoneNumber, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Phone number" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 style="margin-left: 50px">E-mail</h5>
+            @Html.TextBoxFor(model => model.PersonInfo.Email, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "E-mail" })
+        </div>
+    </div>
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+    @*PROFILE INFO END*@
 
 
-            @*ADDRESS*@
-            <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Address</h3>
-            <div class="row">
-                <div class="col">
-                    <h5 style="margin-left: 50px">Country</h5>
-                    @Html.TextBoxFor(model => model.Address.Country, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country"})
-                </div>
-                <div class="col">
-                    <h5 style="margin-left: 50px">City</h5>
-                    @Html.TextBoxFor(model => model.Address.City, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City"})
-                </div>
-                <div class="col">
-                    <h5 style="margin-left: 50px">Post code</h5>
-                    @Html.TextBoxFor(model => model.Address.PostCode, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Post code"})
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5 style="margin-left: 50px">Street</h5>
-                    @Html.TextBoxFor(model => model.Address.Street, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street"})
-                </div>
-                <div class="col">
-                    <h5 style="margin-left: 50px">Street number</h5>
-                    @Html.TextBoxFor(model => model.Address.StreetNumber, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Street number"})
-                </div>
-            </div>
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-            @*ADDRESS END*@
+    @*ADDRESS*@
+    <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Address</h3>
+    <div class="row">
+        <div class="col">
+            <h5 style="margin-left: 50px">Country</h5>
+            @Html.TextBoxFor(model => model.Address.Country, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Country" })
+        </div>
+        <div class="col">
+            <h5 style="margin-left: 50px">City</h5>
+            @Html.TextBoxFor(model => model.Address.City, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "City" })
+        </div>
+        <div class="col">
+            <h5 style="margin-left: 50px">Post code</h5>
+            @Html.TextBoxFor(model => model.Address.PostCode, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Post code" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 style="margin-left: 50px">Street</h5>
+            @Html.TextBoxFor(model => model.Address.Street, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 610px", placeholder = "Street" })
+        </div>
+        <div class="col">
+            <h5 style="margin-left: 50px">Street number</h5>
+            @Html.TextBoxFor(model => model.Address.StreetNumber, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Street number" })
+        </div>
+    </div>
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+    @*ADDRESS END*@
 
 
-            @*WORK EXPERIENCE*@
-            @Html.Partial("~/Views/Partial/WorkExperienceList.cshtml", Model)
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-            @*WORK EXPERIENCE END*@
+    @*WORK EXPERIENCE*@
+    @Html.Partial("~/Views/Partial/WorkExperienceList.cshtml", Model)
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+    @*WORK EXPERIENCE END*@
+
+    @*EDUCATION*@
+    @Html.Partial("~/Views/Partial/EducationList.cshtml", Model)
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+    @*EDUCATION END*@
 
 
-            @*EDUCATION*@
-            @Html.Partial("~/Views/Partial/EducationList.cshtml", Model)
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-            @*EDUCATION END*@
+    @*SKILLS*@
+    @Html.Partial("~/Views/Partial/SkillList.cshtml", Model)
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
+    @*SKILLS END*@
 
 
-            @*SKILLS*@
-            @Html.Partial("~/Views/Partial/SkillList.cshtml", Model)
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 80px">
-            @*SKILLS END*@
+    @*INTEREST*@
+    @Html.Partial("~/Views/Partial/InterestList.cshtml", Model)
+    <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 50px">
+    @*INTEREST END*@
 
-
-            @*INTEREST*@
-            @Html.Partial("~/Views/Partial/InterestList.cshtml", Model)
-            <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 50px">
-            @*INTEREST END*@
-
-            <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
-        </form>
+    <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
+</form>
     }
 
 </div>
@@ -171,7 +202,7 @@
                                 '<input class="form-control" id="EducationVmList_' + count + '__Period" name="EducationVmList[' + count +'].Period" placeholder="Period in years" style="margin-left: 50px; width: 350px" type="text" value="">'+
                     '</div>' +
                     '<div>' +
-                    '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                    '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
                     '</div>' +
                         '</div>' +
                     '</div>');
@@ -208,7 +239,7 @@
                 '<input class="form-control" id="WorkExperienceVmList_' + count + '__WorkFinished" name="WorkExperienceVmList[' + count + '].WorkFinished" placeholder="To date" style="margin-left: 50px; width: 350px" type="date" value="">' +
                 '</div>' +
                 '<div>' +
-                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
                 '</div>' +
                 '</div>' +
                 '</div>');
@@ -226,7 +257,7 @@
                             '<input class="form-control" id="InterestVmList_' + count + '__Hobby" name="InterestVmList[' + count + '].Hobby" placeholder="Interest" style="margin-left: 370px; width: 350px" type="text" value="">' +
                 '</div>' +
                 '<div>' +
-                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -15px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -15px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
                 '</div>' +
                     '</div>' +
                 '</div>');
@@ -254,7 +285,7 @@
                             '<input class="form-control" id="SkillVmList_' + count + '__Description" name="SkillVmList[' + count + '].Description" placeholder="Description" style="margin-left: 50px; min-width: 940px" type="text" value="">' +
                 '</div>' +
                 '<div>' +
-                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
+                '<button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>' +
                 '</div>' +
                     '</div>' +
                 '</div>');
@@ -266,12 +297,11 @@
             console.log($(e.target).closest(".workExperience-section"));
             let workSection = $(e.target).closest(".workExperience-section");
             let educationSection = $(e.target).closest(".education-section");
-            let interestSection = $(e.target).closest(".interest-section-section");
+            let interestSection = $(e.target).closest(".interest-section");
             let skillSection = $(e.target).closest(".skill-section");
             $(workSection).remove();
             $(educationSection).remove();
-            $(interestSection).remove();
             $(skillSection).remove();
+            $(interestSection).remove();
         });
 </script>
-
