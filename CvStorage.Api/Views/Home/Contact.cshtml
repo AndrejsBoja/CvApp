@@ -1,17 +1,32 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<style type="text/css">
+
+    .jumbotron {
+       
+        background-image: url('https://static.pexels.com/photos/392018/pexels-photo-392018.jpeg');
+        background-size: cover;
+        background-color: #898888;
+        height: 500px;
+        color: white;
+    }
+</style>
+<div class="jumbotron">
+    
+    <h2 style="color: rosybrown">@ViewBag.Title.</h2>
+    <h3 style="color: rosybrown">@ViewBag.Message</h3>
+
+    <address>
+        <a href="https://github.com/AndrejsBoja"><strong style="font-size: 18px;color: white">My GitHub</strong></a><br/>
+    </address>
+    <address>
+        <a href="https://www.linkedin.com/in/andrejs-bojarcenko/"><strong style="font-size: 18px; color: white">My LinkedIn</strong></a><br/>
+    </address>
+
+    <address>
+        <strong style="color: rosybrown">Support:</strong> <a href="mailto:andrejs.boja@gmail.com" style="font-size: 15px;color: white">andrejs.boja@gmail.com</a><br/>
+    </address>
+</div>

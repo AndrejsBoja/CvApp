@@ -58,7 +58,7 @@
             <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Education</h2>
             @foreach (var item in Model.EducationVmList)
             {
-                <div><text style="font-size: x-large"> @item.Name </text>&nbsp;|&nbsp; <text style="font-size: large">@item.Faculty</text> &nbsp; | &nbsp; @item.StudyProgram &nbsp; | &nbsp; @item.EducationStatus &nbsp; | &nbsp; @item.Period years</div>
+                <div><text style="font-size: x-large"> @item.Name </text>&nbsp;|&nbsp; <text style="font-size: large">@item.Faculty</text> &nbsp; | &nbsp; @item.StudyProgram &nbsp; | &nbsp; @item.EducationStatus &nbsp; | &nbsp; @item.Period year/s</div>
             }
         </div>
     </div>
@@ -90,7 +90,7 @@
             <h2 style="margin-bottom: 30px; color: #269abc; margin-top: -1%">Interests </h2>
             @foreach (var item in Model.InterestVmList)
             {
-                <span class="badge" style="width: 100px; height: 40px">
+                <span class="badge" style="width: 100px; height: 40px; margin-bottom: 5px">
                     <div style="margin-top: 10px">@item.Hobby</div>
                 </span>
             }
