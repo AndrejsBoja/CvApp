@@ -11,28 +11,24 @@
                 "dbo.Addresses",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         Country = c.String(),
                         City = c.String(),
                         Street = c.String(),
                         PostCode = c.String(),
                         StreetNumber = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cvs", t => t.Id, cascadeDelete: true)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.Cvs",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Address_Id = c.Int(),
-                        PersonInfo_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Addresses", t => t.Address_Id)
-                .ForeignKey("dbo.PersonInfoes", t => t.PersonInfo_Id)
-                .Index(t => t.Address_Id)
-                .Index(t => t.PersonInfo_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Educations",
@@ -67,14 +63,16 @@
                 "dbo.PersonInfoes",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         FirstName = c.String(),
                         LastName = c.String(),
                         Email = c.String(),
                         PhoneNumber = c.String(),
                         ProfileInfo = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cvs", t => t.Id, cascadeDelete: true)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.Skills",
@@ -112,16 +110,16 @@
         {
             DropForeignKey("dbo.WorkExperiences", "CvId", "dbo.Cvs");
             DropForeignKey("dbo.Skills", "CvId", "dbo.Cvs");
-            DropForeignKey("dbo.Cvs", "PersonInfo_Id", "dbo.PersonInfoes");
+            DropForeignKey("dbo.PersonInfoes", "Id", "dbo.Cvs");
             DropForeignKey("dbo.Interests", "CvId", "dbo.Cvs");
             DropForeignKey("dbo.Educations", "CvId", "dbo.Cvs");
-            DropForeignKey("dbo.Cvs", "Address_Id", "dbo.Addresses");
+            DropForeignKey("dbo.Addresses", "Id", "dbo.Cvs");
             DropIndex("dbo.WorkExperiences", new[] { "CvId" });
             DropIndex("dbo.Skills", new[] { "CvId" });
+            DropIndex("dbo.PersonInfoes", new[] { "Id" });
             DropIndex("dbo.Interests", new[] { "CvId" });
             DropIndex("dbo.Educations", new[] { "CvId" });
-            DropIndex("dbo.Cvs", new[] { "PersonInfo_Id" });
-            DropIndex("dbo.Cvs", new[] { "Address_Id" });
+            DropIndex("dbo.Addresses", new[] { "Id" });
             DropTable("dbo.WorkExperiences");
             DropTable("dbo.Skills");
             DropTable("dbo.PersonInfoes");

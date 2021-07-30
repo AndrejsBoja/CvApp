@@ -1,4 +1,6 @@
-﻿namespace CvStorage.Core
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CvStorage.Core
 {
     public class Address : Entity
     {
@@ -7,5 +9,7 @@
         public string Street { get; set; }
         public string PostCode { get; set; }
         public string StreetNumber { get; set; }
+        public virtual Cv Cv { get; set; }
+
     }
 }

@@ -13,7 +13,7 @@ namespace CvStorage.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202107211839475_Init"; }
+            get { return "202107291236076_Init"; }
         }
         
         string IMigrationMetadata.Source

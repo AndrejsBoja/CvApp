@@ -7,5 +7,6 @@
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string ProfileInfo { get; set; }
+        public virtual Cv Cv { get; set; }
     }
 }

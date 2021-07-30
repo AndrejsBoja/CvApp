@@ -3,17 +3,17 @@ using System.Linq;
 using System.Web.Mvc;
 using CvStorage.Api.ViewModels;
 using CvStorage.Core;
-using CvStorage.Core.Services;
+using CvStorage.Services;
 
 namespace CvStorage.Api.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly IEntityDbService _entityDbService;
+        private readonly ICvService _cvService;
 
-        public CustomerController(IEntityDbService entityDbService)
+        public CustomerController(ICvService cvService)
         {
-            _entityDbService = entityDbService;
+            _cvService = cvService;
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace CvStorage.Api.Controllers
         [HttpPost] 
         public ActionResult AddPersonInfo(CvVm cvVm)
         {
-            //if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)  // Nevaru create cv, kaut vai validacijas nekur nav.. 
             //    return View(cvVm);
 
             var personInfo = new PersonInfo()
@@ -52,7 +52,7 @@ namespace CvStorage.Api.Controllers
             {
                 var newEducation = new Education()
                 {
-                    CvId = cvVm.Id, // kapec viņu vajag  ? un kapec vajag CV klasi klat ?
+                    CvId = cvVm.Id, 
                     Id = education.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
@@ -117,11 +117,11 @@ namespace CvStorage.Api.Controllers
 
             if (cvVm.Id == 0)
             {
-                _entityDbService.Create(createdCv);
+                _cvService.Create(createdCv);
             }
             else
             {
-                _entityDbService.Update(createdCv); 
+                _cvService.UpdateCv(createdCv); 
             }
 
             return RedirectToAction("GetCvList");
@@ -130,7 +130,7 @@ namespace CvStorage.Api.Controllers
         [HttpGet]
         public ActionResult GetCvList()
         {
-            var cvList = _entityDbService.Get<Cv>();
+            var cvList = _cvService.Get<Cv>();
             var cvVmList = cvList.Select(MapToVm).ToList();
 
             return View(cvVmList);
@@ -139,29 +139,29 @@ namespace CvStorage.Api.Controllers
         [HttpGet]
         public ActionResult EditCv(int id)
         {
-            var cv = _entityDbService.GetById<Cv>(id);
+            var cv = _cvService.GetById<Cv>(id);
             var model = MapToVm(cv);
             return View("AddPersonInfo", model);
         }
 
-        public ActionResult ViewCv(int id)
+        public ActionResult ViewCv(int id) // bez atributa strada 
         {
-            var cv = _entityDbService.GetById<Cv>(id);
+            var cv = _cvService.GetById<Cv>(id);
             return View(MapToVm(cv));
         }
 
-        [HttpGet]
-        public ActionResult UpdateCvById(int id)
-        {
-            var cv = _entityDbService.GetById<Cv>(id);
-            var model = MapToVm(cv);
-            return View("AddPersonInfo", model);
-        }
+        //[HttpGet]
+        //public ActionResult UpdateCvById(int id)
+        //{
+        //    var cv = _cvService.GetById<Cv>(id);
+        //    var model = MapToVm(cv);
+        //    return View("AddPersonInfo", model);
+        //}
 
         [Route("http://localhost:8080/Customer/DeleteCv"), HttpGet]
         public ActionResult DeleteCvById(int id)
         {
-            _entityDbService.Delete<Cv>(id);
+            _cvService.Delete<Cv>(id);
             return RedirectToAction("GetCvList");
         }
 
@@ -191,7 +191,6 @@ namespace CvStorage.Api.Controllers
                 var newEducationVm = new EducationVm()
                 {
                     Id = education.Id,
-                    //Id = education.Id,
                     EducationLevel = education.EducationLevel,
                     Faculty = education.Faculty,
                     Name = education.Name,

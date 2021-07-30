@@ -32,7 +32,7 @@ namespace CvStorage.Api.DependencyResolution {
 					scan.With(new ControllerConvention());
                 });
             //For<IExample>().Use<Example>();
-            For<IEntityDbService>().Use<EntityDbService>();
+            For<ICvService>().Use<CvService>();
 
         }
 

@@ -52,9 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CvStorageDbContext.cs" />
-    <Compile Include="Migrations\202107211839475_Init.cs" />
-    <Compile Include="Migrations\202107211839475_Init.designer.cs">
-      <DependentUpon>202107211839475_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202107291236076_Init.cs" />
+    <Compile Include="Migrations\202107291236076_Init.designer.cs">
+      <DependentUpon>202107291236076_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107291303256_test.cs" />
+    <Compile Include="Migrations\202107291303256_test.designer.cs">
+      <DependentUpon>202107291303256_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +74,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107211839475_Init.resx">
-      <DependentUpon>202107211839475_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107291236076_Init.resx">
+      <DependentUpon>202107291236076_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107291303256_test.resx">
+      <DependentUpon>202107291303256_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
