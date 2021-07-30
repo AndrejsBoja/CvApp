@@ -3,7 +3,7 @@
 <h3 style="margin-left: 47%; margin-bottom: 50px; margin-top: 50px">Skill</h3>
 
 <div id="skill">
-    
+
     @for (int i = 0; i < Model.SkillVmList.Count; i++)
     {
         <div class="skill-section">
@@ -11,19 +11,21 @@
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Skill</h5>
-                    @Html.TextBoxFor(model => model.SkillVmList[i].Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Skill" })
+                    @Html.TextBoxFor(model => model.SkillVmList[i].Name, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Skill"})
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Achievement</h5>
-                    @Html.TextBoxFor(model => model.SkillVmList[i].Achievement, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Achievement" })
+                    @Html.TextBoxFor(model => model.SkillVmList[i].Achievement, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Achievement"})
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Description</h5>
-                    @Html.TextAreaFor(model => model.SkillVmList[i].Description, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Description" })
+                    @Html.TextAreaFor(model => model.SkillVmList[i].Description, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 940px", placeholder = "Description"})
                 </div>
-                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px;background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>
+                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1">
+                    <span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span>
+                </button>
             </div>
         </div>
     }

@@ -36,7 +36,7 @@ namespace CvStorage.Services
             EntityContext.SaveChanges();
         }
 
-        public void Update<T>(T entity) where T : Entity // vai pareizi ?
+        public void Update<T>(T entity) where T : Entity
         {
             
             EntityContext.Entry(entity).State = EntityState.Modified;

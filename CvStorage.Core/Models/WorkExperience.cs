@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CvStorage.Core
+﻿namespace CvStorage.Core
 {
     public class WorkExperience : Entity
     {

@@ -29,7 +29,6 @@
     }
 </style>
 
-
 <div class="jumbotron">
     <h1>CREATE CV</h1>
     <p class="lead">You can fill up the fields and create a CV here.</p>
@@ -52,27 +51,22 @@
 
     @for (int i = 0; i < Model.EducationVmList.Count; i++)
     {
-       
         @Html.HiddenFor(m => m.EducationVmList[i].Id)
-    
     }
     
     @for (int i = 0; i < Model.SkillVmList.Count; i++)
     {
         @Html.HiddenFor(m => m.SkillVmList[i].Id)
-
     }
     
     @for (int i = 0; i < Model.InterestVmList.Count; i++)
     {
         @Html.HiddenFor(m => m.InterestVmList[i].Id)
-
     }
     
     @for (int i = 0; i < Model.WorkExperienceVmList.Count; i++)
     {
         @Html.HiddenFor(m => m.WorkExperienceVmList[i].Id)
-
     }
     
    

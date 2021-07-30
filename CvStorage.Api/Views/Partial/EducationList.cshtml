@@ -8,32 +8,34 @@
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Name of Educational Institution</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].Name, new { @class = "form-control", type = "text", style = "margin-left: 50px; min-width: 280px", placeholder = "Name of Educational Institution" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].Name, new {@class = "form-control", type = "text", style = "margin-left: 50px; min-width: 280px", placeholder = "Name of Educational Institution"})
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Faculty</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].Faculty, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Faculty" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].Faculty, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Faculty"})
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Study program</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].StudyProgram, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Study program" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].StudyProgram, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Study program"})
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 50px">Education level</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].EducationLevel, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Education level" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].EducationLevel, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Education level"})
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Education status</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].EducationStatus, new { @class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Education status" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].EducationStatus, new {@class = "form-control", type = "text", style = "margin-left: 50px; width: 350px", placeholder = "Education status"})
                 </div>
                 <div class="col">
                     <h5 style="margin-left: 50px">Period in years</h5>
-                    @Html.TextBoxFor(model => model.EducationVmList[i].Period, new { @class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Period in years" })
+                    @Html.TextBoxFor(model => model.EducationVmList[i].Period, new {@class = "form-control", type = "number", style = "margin-left: 50px; width: 350px", placeholder = "Period in years"})
                 </div>
-                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>
+                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1">
+                    <span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span>
+                </button>
 
             </div>
         </div>

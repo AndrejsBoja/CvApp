@@ -3,15 +3,17 @@
 <h3 style="margin-left: 46%; margin-bottom: 50px; margin-top: 50px">Interest</h3>
 
 <div id="interest">
-    @for (int i = 0; i < Model.InterestVmList.Count; i++)
+    @for (var i = 0; i < Model.InterestVmList.Count; i++)
     {
         <div class="interest-section">
             <div class="row">
                 <div class="col">
                     <h5 style="margin-left: 370px">Interest</h5>
-                    @Html.TextBoxFor(model => model.InterestVmList[i].Hobby, new { @class = "form-control", type = "text", style = "margin-left: 370px; width: 350px", placeholder = "Interest" })
+                    @Html.TextBoxFor(model => model.InterestVmList[i].Hobby, new {@class = "form-control", type = "text", style = "margin-left: 370px; width: 350px", placeholder = "Interest"})
                 </div>
-                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1"><span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span></button>
+                <button type="button" style="margin-left: 10px; min-width: 1px; margin-bottom: -10px; height: 1px; background-color: white" class="remove btn btn-secondary col-lg-2 col-lg-offset-1">
+                    <span style="margin-right: 1px; font-size: 25px" class="glyphicon glyphicon-trash"></span>
+                </button>
             </div>
         </div>
     }
