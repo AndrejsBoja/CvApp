@@ -34,12 +34,12 @@
     <p class="lead">You can fill up the fields and create a CV here.</p>
 
     @*PROFILE INFO ICON AND HEADER*@
-    <div style="margin-left: 35%; margin-top: 60px">
-        <span class="IconTitle">
-            <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
-        </span>
-        <h3 style="margin-left: 15%; margin-top: -7%; margin-bottom: 90px;">Personal Info</h3>
-    </div>
+<div style="margin-left: 35%; margin-top: 60px">
+    <span class="IconTitle" style="background-color: royalblue">
+        <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-left: 26px; margin-top: 23px; color: white;"></span>
+    </span>
+    <h3 style="margin-left: 15%; margin-top: -7%; margin-bottom: 90px;">Personal Info</h3>
+</div>
     @*PROFILE INFO ICON AND HEADER END*@
 
     @using (Html.BeginForm("AddPersonInfo", "Customer", FormMethod.Post))
@@ -155,7 +155,7 @@
     <hr style="height: 2px; border-width: 0; color: #158cba; background-color: #158cba; margin-top: 50px">
     @*INTEREST END*@
 
-    <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -2%; margin-top: 5%" type="submit">Submit form</button>
+    <button class="btn btn-primary btn-lg" style="margin-left: 45%; margin-bottom: -1%; margin-top: 5%;background-color: royalblue" type="submit">Submit form</button>
 </form>
     }
 

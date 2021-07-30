@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using CvStorage.Api.ViewModels;
@@ -106,6 +107,7 @@ namespace CvStorage.Api.Controllers
          
             var createdCv = new Cv()
             {
+                CreatedDateTime = DateTime.Now,
                 Id = cvVm.Id,
                 PersonInfo = personInfo,
                 Address = address,
@@ -240,6 +242,7 @@ namespace CvStorage.Api.Controllers
 
             var cvVm = new CvVm()
             {
+                CreatedDateTime = cv.CreatedDateTime,
                 Id = cv.Id,
                 Address = addressVm,
                 PersonInfo = personInfoVm,

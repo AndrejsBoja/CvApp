@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CvStorage.Core;
 
 namespace CvStorage.Api.ViewModels
@@ -12,6 +13,7 @@ namespace CvStorage.Api.ViewModels
             SkillVmList = new List<SkillVm>();
             InterestVmList = new List<InterestVm>();
         }
+        public DateTime CreatedDateTime { get; set; }
         public int Id { get; set; }
         public PersonInfoVm PersonInfo { get; set; }
         public AddressVm Address { get; set; }

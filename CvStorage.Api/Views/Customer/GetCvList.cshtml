@@ -39,24 +39,44 @@
                     <span style="font-size: 15px;">@Html.DisplayFor(model => item.PersonInfo.Email)</span>
                 </td>
                 <td class="col-lg-1">
-                    <span style="font-size: 15px;">20.07.2021</span> @* japieliek create datumu*@
+                    <span style="font-size: 15px;">@Html.DisplayFor(model => item.CreatedDateTime)</span>
                 </td>
                 <td class="col-lg-4">
                     <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-secondary col-lg-2">
                         <span style="margin-right: 5px" class="glyphicon glyphicon-search"></span>
                     </button>
 
-                    <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-primary col-lg-2 col-lg-offset-1">
+                    <button type="button" style="margin-left: 5px; background-color: royalblue" data-id="@item.Id" class="btn btn-primary col-lg-2 col-lg-offset-1">
                         <span style="margin-right: 5px" class="glyphicon glyphicon-pencil"></span>
                     </button>
 
-                    @using (Html.BeginForm("DeleteCvById", "Customer", FormMethod.Post))
-                    {
-                        <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-warning col-lg-2 col-lg-offset-1">
-                            <span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span>
-                        </button>
-                            @*VAJAG UZLIKT CONFIRM TO DELETE*@
-                    }
+                    @*DELETE MODAL BUTTON*@
+                    <button style="margin-left: 5px" class="btn btn-warning col-lg-2 col-lg-offset-1" onclick="document.getElementById('id01').style.display = 'block'">
+                        <span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span>
+                    </button>
+
+                    <div id="id01" class="modal">
+                        <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+                        <form class="modal-content" action="/action_page.php">
+                            <div class="container">
+                                <h1>Delete Cv</h1>
+                                <p>Are you sure you want to delete your Cv?</p>
+
+                                <div class="clearfix">
+
+
+                                    <a href="@Url.Action("GetCvList", "Customer")" class="btn btn-primary btn-lg" style="margin-bottom: 5px; background-color: royalblue">Cancel</a>
+
+
+                                    @using (Html.BeginForm("DeleteCvById", "Customer", FormMethod.Post))
+                                    {
+                                        <button type="button" class="btn btn-delete btn-lg" style="margin-bottom: 5px; margin-left: 5px; background-color: darkorange; color: white" data-id="@item.Id">Delete</button>
+                                    }
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </td>
             </tr>
         }
@@ -77,7 +97,7 @@
         @*DELETE BUTTON*@
         $(document).ready(function() {
             $("body").on("click",
-                ".btn-warning",
+                ".btn-delete",
                 function(i) {
                     let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
 

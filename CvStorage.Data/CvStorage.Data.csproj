@@ -60,6 +60,14 @@
     <Compile Include="Migrations\202107291303256_test.designer.cs">
       <DependentUpon>202107291303256_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107301301329_DateCreatedvariableAdded.cs" />
+    <Compile Include="Migrations\202107301301329_DateCreatedvariableAdded.designer.cs">
+      <DependentUpon>202107301301329_DateCreatedvariableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107301703529_DateCreatedvariableChanged.cs" />
+    <Compile Include="Migrations\202107301703529_DateCreatedvariableChanged.designer.cs">
+      <DependentUpon>202107301703529_DateCreatedvariableChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +87,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107291303256_test.resx">
       <DependentUpon>202107291303256_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107301301329_DateCreatedvariableAdded.resx">
+      <DependentUpon>202107301301329_DateCreatedvariableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107301703529_DateCreatedvariableChanged.resx">
+      <DependentUpon>202107301703529_DateCreatedvariableChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

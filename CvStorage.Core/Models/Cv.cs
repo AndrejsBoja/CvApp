@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CvStorage.Core
 {
@@ -11,7 +12,7 @@ namespace CvStorage.Core
             SkillList = new List<Skill>();
             InterestList = new List<Interest>();
         }
-
+        public virtual DateTime CreatedDateTime { get; set; }
         public virtual PersonInfo PersonInfo { get; set; }
         public virtual Address Address { get; set; }
         public virtual List<Education> EducationList { get; set; }
