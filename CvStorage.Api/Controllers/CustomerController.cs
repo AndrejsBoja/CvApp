@@ -160,7 +160,7 @@ namespace CvStorage.Api.Controllers
         //    return View("AddPersonInfo", model);
         //}
 
-        [Route("http://localhost:8080/Customer/DeleteCv"), HttpGet]
+        [HttpGet]
         public ActionResult DeleteCvById(int id)
         {
             _cvService.Delete<Cv>(id);

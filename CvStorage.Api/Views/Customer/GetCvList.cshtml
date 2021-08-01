@@ -1,4 +1,5 @@
-﻿@model List<CvStorage.Api.ViewModels.CvVm>
+﻿@using System.Web.Configuration
+@model List<CvStorage.Api.ViewModels.CvVm>
 
 @{
     ViewBag.Title = "GetCvList";
@@ -39,7 +40,7 @@
                     <span style="font-size: 15px;">@Html.DisplayFor(model => item.PersonInfo.Email)</span>
                 </td>
                 <td class="col-lg-1">
-                    <span style="font-size: 15px;">@Html.DisplayFor(model => item.CreatedDateTime)</span>
+                    <span style="font-size: 15px; margin-left: 6px">@Html.DisplayFor(model => item.CreatedDateTime)</span>
                 </td>
                 <td class="col-lg-4">
                     <button type="button" style="margin-left: 5px" data-id="@item.Id" class="btn btn-secondary col-lg-2">
@@ -51,12 +52,12 @@
                     </button>
 
                     @*DELETE MODAL BUTTON*@
-                    <button style="margin-left: 5px" class="btn btn-warning col-lg-2 col-lg-offset-1" onclick="document.getElementById('id01').style.display = 'block'">
+                    <button style="margin-left: 5px" class="btn btn-warning col-lg-2 col-lg-offset-1" data-id="@item.Id" onclick="document.getElementById('id01').style.display = 'block'">
                         <span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span>
                     </button>
 
                     <div id="id01" class="modal">
-                        <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+                        <span onclick="document.getElementById('id01').style.display = 'none'" data-id="@item.Id" class="close" title="Close Modal">&times;</span>
                         <form class="modal-content" action="/action_page.php">
                             <div class="container">
                                 <h1>Delete Cv</h1>
@@ -65,7 +66,7 @@
                                 <div class="clearfix">
 
 
-                                    <a href="@Url.Action("GetCvList", "Customer")" class="btn btn-primary btn-lg" style="margin-bottom: 5px; background-color: royalblue">Cancel</a>
+                                    <a onclick="document.getElementById('id01').style.display = 'none'" class="btn btn-close btn-lg" style="color: white; margin-bottom: 5px; background-color: royalblue">Cancel</a>
 
 
                                     @using (Html.BeginForm("DeleteCvById", "Customer", FormMethod.Post))
@@ -77,6 +78,7 @@
                             </div>
                         </form>
                     </div>
+
                 </td>
             </tr>
         }
@@ -88,7 +90,7 @@
             $("body").on("click",
                 ".btn-secondary",
                 function(i) {
-                    let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
+                    var id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
 
                     window.location = location.href = `@Url.Action("ViewCv", "Customer")?id=${id}`;
                 });
@@ -99,7 +101,7 @@
             $("body").on("click",
                 ".btn-delete",
                 function(i) {
-                    let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
+                    var id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
 
                     window.location = location.href = `@Url.Action("DeleteCvById", "Customer")?id=${id}`;
                 });
@@ -110,10 +112,18 @@
             $("body").on("click",
                 ".btn-primary",
                 function(i) {
-                    let id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
+                    var id = $(i.target).data('id') == undefined ? $(i.target).parent().data('id') : $(i.target).data('id');
 
                     window.location = location.href = `@Url.Action("EditCv", "Customer")?id=${id}`;
                 });
         });
+
+
+        var modal = document.getElementById('id01'); 
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </div>
