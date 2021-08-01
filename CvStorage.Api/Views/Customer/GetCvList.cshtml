@@ -52,7 +52,7 @@
                     </button>
 
                     @*DELETE MODAL BUTTON*@
-                    <button style="margin-left: 5px" class="btn btn-warning col-lg-2 col-lg-offset-1" data-id="@item.Id"  onclick="document.getElementById('@item.Id').style.display = 'block'">
+                    <button style="margin-left: 5px" class="btn btn-warning col-lg-2 col-lg-offset-1" data-id="@item.Id" onclick="document.getElementById('@item.Id').style.display = 'block'">
                         <span style="margin-right: 5px" class="glyphicon glyphicon-trash"></span>
                     </button>
 
@@ -66,13 +66,15 @@
                                 <div class="clearfix">
 
 
-                                    <a onclick="document.getElementById('@item.Id').style.display = 'none'" class="btn btn-close btn-lg" style="color: white; margin-bottom: 5px; background-color: royalblue">Cancel</a>
+                                    <a onclick="document.getElementById('@item.Id').style.display = 'none'" data-id="@item.Id" class="btn btn-close btn-lg" style="color: white; margin-bottom: 5px; background-color: royalblue">Cancel</a>
 
 
                                     @using (Html.BeginForm("DeleteCvById", "Customer", FormMethod.Post)) 
                                     {
                                         <button type="button" class="btn btn-delete btn-lg" style="margin-bottom: 5px; margin-left: 5px; background-color: darkorange; color: white" data-id="@item.Id">Delete @item.Id</button>
-                                    }
+                                    }  @*vai vajag Using seit ?*@
+                                    
+                                
 
                                 </div>
                             </div>
@@ -84,6 +86,7 @@
         }
 
     </table>
+
     <script type="text/javascript">
         @*VIEW BUTTON*@
         $(document).ready(function() {
@@ -118,12 +121,13 @@
                 });
         });
 
+        //var modal = document.getElementById('id');   Nestrada , ka ielikt tur pareizo id ?
+        //window.onclick = function(event) {
+        //    if (event.target === modal) {
+        //        modal.style.display = "none";
+        //    }
+        //}
 
-        var modal = document.getElementById('id01');
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
+        
     </script>
 </div>
